@@ -15,25 +15,39 @@
                 <a class="nav-link" href="#">List Channel</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Action</a>
+                <a class="nav-link" href="#">Add</a>
               </li>             
             </ul>
           </div>
         </div>
       </nav>
 </div>
-<div class="container mt-5">
-    <table class="table">
+<div class=" m-5">
+    <table class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Channel Name</th>
             <th scope="col">Descripion</th>
             <th scope="col">Subscribers Count</th>
-          </tr>
+            <th scope="col">URL</th>
+			<th scope="col">Action</th>
+		</tr>
         </thead>
         <tbody>
-           
+            @foreach ($data as $item)
+            <tr>
+                <td>{{ $item->channel_id }}</td>
+                <td>{{ $item->ChannelName }}</td>
+                <td>{{ $item->descripion }}</td>
+                <td>{{ $item->subscriberscount }}</td>
+                <td>{{ $item->URL }}</td>
+				<td class="d-flex flex-col justify-content-around">
+					<button class="btn btn-primary me-2">Edit</button>
+					<button class="btn btn-warning">Delete</button>
+				</td>
+            </tr>
+        @endforeach
         </tbody>
       </table>
 </div>
